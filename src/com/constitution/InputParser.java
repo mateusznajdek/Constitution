@@ -16,6 +16,39 @@ public class InputParser {
 
         String Line, Line2, Titleofchapter; int article = 1, chapter = 1;
         String TMP[] = null;
+    /*
+
+   FileReader fr = null;
+   String linia = "";
+
+   // OTWIERANIE PLIKU:
+   try {
+     fr = new FileReader("plik.txt");
+   } catch (FileNotFoundException e) {
+       System.out.println("BŁĄD PRZY OTWIERANIU PLIKU!");
+       System.exit(1);
+   }
+
+   BufferedReader bfr = new BufferedReader(fr);
+   // ODCZYT KOLEJNYCH LINII Z PLIKU:
+   try {
+     while((linia = bfr.readLine()) != null){
+        System.out.println(linia);
+     }
+    } catch (IOException e) {
+        System.out.println("BŁĄD ODCZYTU Z PLIKU!");
+        System.exit(2);
+   }
+
+   // ZAMYKANIE PLIKU
+   try {
+     fr.close();
+    } catch (IOException e) {
+         System.out.println("BŁĄD PRZY ZAMYKANIU PLIKU!");
+         System.exit(3);
+        }
+    }
+     */
 
         try (Scanner scanner = new Scanner(new File(FilePath))) {
 
@@ -25,6 +58,7 @@ public class InputParser {
             while (scanner.hasNext()){
                 //System.out.println(scanner.nextLine());
                 Line = scanner.nextLine();
+                //System.out.println(Line);
 
                 //wczytuje kolejny rozdzial
                 if (Line.startsWith("Rozdział")){
@@ -33,7 +67,7 @@ public class InputParser {
                     ChapterObject = new Chapter();  //utworz nastepny
                     ChapterObject.SetFirstArticle(article);
                     ChapterObject.SetNumChapter(chapter); chapter++;
-                    Titleofchapter = Line + "\n";  //wiem co robie, tworze nowy obiekt string, ale nie szkoda mi na to pamieci bo co to jest 15 rozdzailow, szkoda zabawy
+                    Titleofchapter = Line + "\n";
                     if (scanner.hasNext()) Line = scanner.nextLine();
                     Titleofchapter += Line;
                     ChapterObject.SetTitle(Titleofchapter);
