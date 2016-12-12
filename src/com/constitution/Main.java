@@ -7,6 +7,10 @@ package com.constitution;
 public class Main {
 
     public static void main(String[] args) {
+        if (args.length==0) {
+            System.err.print("Didn't specifited arguments");
+            System.exit(11);
+        }
 
 	    Const ConstitutionObject = InputParser.Parser(args[0]);
 
@@ -34,7 +38,9 @@ public class Main {
 			case 'b' : first = AorBorCAndNumberOrNumbers.ReturnFirstNumber(); last = AorBorCAndNumberOrNumbers.ReturnSecondNumber(); break;
 			case 'B' : first = AorBorCAndNumberOrNumbers.ReturnFirstNumber(); last = AorBorCAndNumberOrNumbers.ReturnSecondNumber(); break;
 
-			default: throw new IllegalArgumentException("Incorrect AorBorC, not equal a or b or c.");
+			default:
+                System.err.print("Incorrect AorBorC, not equal a or b or c.");
+                System.exit(10);
 		}
 
 		if (AorBorCAndNumberOrNumbers.ReturnAorBorC() != 'a' && AorBorCAndNumberOrNumbers.ReturnAorBorC() != 'A')

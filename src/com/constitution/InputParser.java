@@ -26,7 +26,7 @@ public class InputParser {
    try {
      fr = new FileReader(FilePath);
    } catch (FileNotFoundException e) {
-       System.out.println("Error during oppening file!");
+       System.err.print("Error during oppening file!");
        System.exit(1);
    }
 
@@ -91,7 +91,7 @@ public class InputParser {
        ChapterObject.SetLastArticle(article);
 
     } catch (IOException e) {
-        System.out.println("Error reading file!");
+        System.err.print("Error reading file!");
         System.exit(2);
     }
 
@@ -169,7 +169,7 @@ public class InputParser {
         try {
             fr.close();
         } catch (IOException e) {
-            System.out.println("Error during closing file!");
+            System.err.print("Error during closing file!");
             System.exit(3);
         }
 
