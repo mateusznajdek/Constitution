@@ -14,6 +14,7 @@ public class Article {
         this.Title = Title;
     }
 
+
     public void SetTitle(String Title) {
         this.Title = Title;
     }

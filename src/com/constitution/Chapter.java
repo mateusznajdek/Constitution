@@ -8,9 +8,16 @@ public class Chapter {
         private int NumFirstArticle;
         private int NumLastArticle;
         private String Title;
+        private int NumChapter;
 
-        public Chapter() {
+        public Chapter(int NumFirstArticle, int NumLastArticle, int NumChapter, String Title) {
+            this.NumFirstArticle = NumFirstArticle;
+            this.NumLastArticle = NumLastArticle;
+            this.NumChapter = NumChapter;
+            this.Title = Title;
         }
+
+        public Chapter(){};
 
         public void SetFirstArticle(int NumFirstArticle) {
             this.NumFirstArticle = NumFirstArticle;
@@ -34,6 +41,13 @@ public class Chapter {
 
         public String ReturnTitle() {
             return Title;
+        }
+
+        public void SetNumChapter (int NumChapter){
+            this.NumChapter = NumChapter;
+        }
+        public int ReturnNumChapter (int NumChapter){
+            return this.NumChapter;
         }
 }
 
