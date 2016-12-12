@@ -13,19 +13,28 @@ public class Main {
 		Arguments.OneArgument AorBorCAndNumberOrNumbers = Arguments.Arguments(args);
 		Chapter tmp; int first = 0, last = 0;
 
+        System.out.println("Syntax program:\n Prog chould be called with parametrs:" +
+                "  name_of_file.txt  what_do_to  num_1  (num_2 optional)\n " +
+                "what_to_do:   a-print article   b-print interval  c-print chapter\n");
+
+        //System.out.println(AorBorCAndNumberOrNumbers.ReturnAorBorC());
+		//System.out.println(ConstitutionObject.TextArticle(7));
+        //System.out.println(ConstitutionObject.ListOfAllChapters.isEmpty());
+
 		switch (AorBorCAndNumberOrNumbers.ReturnAorBorC()){
 			case 'a' : System.out.print(ConstitutionObject.TextArticle(AorBorCAndNumberOrNumbers.ReturnFirstNumber())); break;
 			case 'A' : System.out.print(ConstitutionObject.TextArticle(AorBorCAndNumberOrNumbers.ReturnFirstNumber())); break;
 
 			case 'c' : tmp = ConstitutionObject.ReturnChapter(AorBorCAndNumberOrNumbers.ReturnFirstNumber());
-				first = tmp.ReturnNumFirstArticle(); last = tmp.ReturnNumLastArticle(); break;
+				first = tmp.ReturnNumFirstArticle(); last = tmp.ReturnNumLastArticle();
+				System.out.print(first); System.out.print(last); break;
 			case 'C' : tmp = ConstitutionObject.ReturnChapter(AorBorCAndNumberOrNumbers.ReturnFirstNumber());
 				first = tmp.ReturnNumFirstArticle(); last = tmp.ReturnNumLastArticle(); break;
 
 			case 'b' : first = AorBorCAndNumberOrNumbers.ReturnFirstNumber(); last = AorBorCAndNumberOrNumbers.ReturnSecondNumber(); break;
 			case 'B' : first = AorBorCAndNumberOrNumbers.ReturnFirstNumber(); last = AorBorCAndNumberOrNumbers.ReturnSecondNumber(); break;
 
-			default: throw new IllegalArgumentException("Incorrect second argument of chose.");
+			default: throw new IllegalArgumentException("Incorrect AorBorC, not equal a or b or c.");
 		}
 
 		if (AorBorCAndNumberOrNumbers.ReturnAorBorC() != 'a' && AorBorCAndNumberOrNumbers.ReturnAorBorC() != 'A')
